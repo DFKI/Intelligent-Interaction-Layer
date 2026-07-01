@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="gDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <radialGradient id="bgCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(34,197,94,0.12)"/>
+      <stop offset="100%" stop-color="rgba(34,197,94,0)"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ambient glow background -->
+  <circle cx="200" cy="185" r="160" fill="url(#bgCenter)"/>
+
+  <!-- Decorative rings -->
+  <circle cx="200" cy="185" r="155" fill="none" stroke="rgba(34,197,94,0.05)" stroke-width="1"/>
+  <circle cx="200" cy="185" r="140" fill="none" stroke="rgba(34,197,94,0.08)" stroke-width="1" stroke-dasharray="3 7"/>
+  <circle cx="200" cy="185" r="125" fill="none" stroke="rgba(34,197,94,0.13)" stroke-width="1.5" stroke-dasharray="1 5"/>
+
+  <!-- Inner background -->
+  <circle cx="200" cy="185" r="72" fill="rgba(15,23,42,0.55)"/>
+  <circle cx="200" cy="185" r="72" fill="none" stroke="rgba(34,197,94,0.18)" stroke-width="1.5"/>
+
+  <!-- Dot accents at the three vertices (top, bottom-right, bottom-left) -->
+  <circle cx="200" cy="80" r="5" fill="#22C55E" opacity="0.6" filter="url(#softglow)"/>
+  <circle cx="290.9" cy="237.5" r="5" fill="#22C55E" opacity="0.6" filter="url(#softglow)"/>
+  <circle cx="109.1" cy="237.5" r="5" fill="#22C55E" opacity="0.6" filter="url(#softglow)"/>
+
+  <!-- Arc 1: right side going down (285° → 15°) -->
+  <path d="M 227.2 83.6 A 105 105 0 0 1 301.4 212.2"
+        fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round"
+        filter="url(#glow)"/>
+  <polygon points="301.4,212.2 296.4,192.2 315.7,197.4"
+           fill="#22C55E" filter="url(#glow)"/>
+
+  <!-- Arc 2: bottom going left (45° → 135°) -->
+  <path d="M 274.2 259.2 A 105 105 0 0 1 125.8 259.2"
+        fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round"
+        filter="url(#glow)"/>
+  <polygon points="125.8,259.2 145.6,264.9 131.5,279.0"
+           fill="#22C55E" filter="url(#glow)"/>
+
+  <!-- Arc 3: left side going up (165° → 255°) -->
+  <path d="M 98.6 212.2 A 105 105 0 0 1 172.8 83.6"
+        fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round"
+        filter="url(#glow)"/>
+  <polygon points="172.8,83.6 158.0,97.9 152.8,78.6"
+           fill="#22C55E" filter="url(#glow)"/>
+
+  <!-- Central CE monogram -->
+  <text x="200" y="200" text-anchor="middle" dominant-baseline="middle"
+        font-family="Plus Jakarta Sans, Arial Black, sans-serif"
+        font-size="58" font-weight="900" letter-spacing="-2"
+        fill="url(#g)" filter="url(#softglow)">CE</text>
+
+  <!-- Divider -->
+  <line x1="130" y1="328" x2="270" y2="328"
+        stroke="rgba(34,197,94,0.22)" stroke-width="1"/>
+
+  <!-- Brand name -->
+  <text x="200" y="368" text-anchor="middle"
+        font-family="Plus Jakarta Sans, Arial, sans-serif"
+        font-size="28" font-weight="700" letter-spacing="-0.5"
+        fill="#F8FAFC">CE Servisec</text>
+
+  <!-- Tagline -->
+  <text x="200" y="400" text-anchor="middle"
+        font-family="Plus Jakarta Sans, Arial, sans-serif"
+        font-size="10.5" font-weight="500" letter-spacing="2.8"
+        fill="#64748B">CIRCULAR ECONOMY SERVICES</text>
+
+  <!-- Powered by -->
+  <text x="200" y="430" text-anchor="middle"
+        font-family="Plus Jakarta Sans, Arial, sans-serif"
+        font-size="9.5" font-weight="300" letter-spacing="1.5"
+        fill="#334155">Powered by DFKI</text>
+</svg>

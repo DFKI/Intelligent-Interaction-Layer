@@ -1,0 +1,46 @@
+# CE Servisec Agent — User Registry
+#
+# Roles: manufacturer, designer, recycler, policy_maker, researcher,
+#        auditor, logistics_manager, sustainability_officer, data_scientist, orchestrator
+#
+# To add a new user, append an entry below following the same schema:
+#   - username:      login name (unique)
+#     password:      login password
+#     role:          one of the roles listed above (defines tools, prompts, and UI)
+#     display_name:  name shown in the UI
+#     organization:  organization label shown in the UI
+#
+# The `role` field drives the agent's behavior (see auth.py ROLE_META,
+# ROLE_SYSTEM_ADDENDA, and ROLE_QUESTIONS). Any role from the list above can
+# be assigned without code changes.
+
+users:
+  - username: user1
+    password: user1
+    role: manufacturer
+    display_name: Manufacturer User
+    organization: Example Organization
+
+  - username: user2
+    password: user2
+    role: designer
+    display_name: Designer User
+    organization: Example Organization
+
+  - username: user3
+    password: user3
+    role: recycler
+    display_name: Recycler User
+    organization: Example Organization
+
+  - username: user4
+    password: user4
+    role: policy_maker
+    display_name: Policy Maker User
+    organization: Example Organization
+
+  - username: admin
+    password: admin
+    role: orchestrator
+    display_name: System Administrator
+    organization: Example Organization
