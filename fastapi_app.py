@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).parent
 SECRET_KEY = os.getenv("CE_SECRET_KEY", secrets.token_hex(32))
 TOKEN_MINUTES = 60
 
-ALLOWED_MODELS = ["gemma3:12b", "phi4:latest", "qwen2.5:7b", "mistral:latest"]
+ALLOWED_MODELS = ["qwen2.5:7b", "phi4:latest", "mistral:latest", "gemma3:12b"]
 DEFAULT_MODEL = ALLOWED_MODELS[0]
 
 CE_SERVICE_LABELS = {
@@ -327,7 +327,7 @@ async def ws_chat(websocket: WebSocket):
                 err = str(e)
                 if "does not support tools" in err or "400" in err:
                     tools_ok = False
-                    await tx({"type": "warning", "content": f"`{model}` has no tool support — switch to gemma3 or qwen2.5 for CE services."})
+                    await tx({"type": "warning", "content": f"`{model}` has no tool support — switch to qwen2.5 or phi4 for CE services."})
                     try:
                         resp1 = await asyncio.to_thread(
                             ollama.chat, model=model, messages=messages, stream=False

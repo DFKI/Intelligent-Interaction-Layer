@@ -63,7 +63,7 @@ box_top(W2, C)
 box2_row("🔌  MCP Server:", "http://0.0.0.0:8002/sse")
 box2_row("🌐  Web UI:",     "http://localhost:8000")
 box2_row("⚡  CE Tools:",   "5 services")
-box2_row("🤖  LLM:",        "Ollama (gemma3 · phi4 · qwen2.5 · mistral)")
+box2_row("🤖  LLM:",        "Ollama (qwen2.5 · phi4 · mistral · gemma3)")
 box_bot(W2, C)
 print()
 PYEOF
@@ -125,7 +125,7 @@ fi
 # ── Check Ollama and ensure the default model is available ─────────────────────
 # Derive the default model from the app so this stays in sync with ALLOWED_MODELS.
 DEFAULT_MODEL="$(grep -oP 'ALLOWED_MODELS\s*=\s*\["\K[^"]+' "$PROJECT_DIR/fastapi_app.py" 2>/dev/null)"
-DEFAULT_MODEL="${DEFAULT_MODEL:-gemma3:12b}"
+DEFAULT_MODEL="${DEFAULT_MODEL:-qwen2.5:7b}"
 
 if curl -s http://localhost:11434/api/tags 2>/dev/null | grep -q "\"$DEFAULT_MODEL\""; then
     echo -e "${GREEN}Default model '$DEFAULT_MODEL' is installed.${NC}"

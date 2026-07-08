@@ -9,7 +9,7 @@ The **Intelligent Interaction Layer** is a natural-language chatbot — the agen
 - **Natural-language interface** — ask in plain English; the agent interprets your intent, calls the right CE service, and explains the result (no commands or code)
 - **5 CE analysis services** exposed as MCP tools (carbon footprint, circularity indicator, material reuse, CE data extraction, service registry)
 - **FastMCP SSE server** on port 8002 — tools callable from any MCP client
-- **Streaming LLM responses** via Ollama (gemma3, phi4, qwen2.5, mistral)
+- **Streaming LLM responses** via Ollama (qwen2.5, phi4, mistral, gemma3)
 - **Role-based access control** — 10 users across 10 CE roles (manufacturer, designer, recycler, policy maker, auditor, etc.)
 - **Light / dark mode** with theme persistence
 - **Pre-routing** — deterministic queries bypass the LLM entirely for instant answers
@@ -37,17 +37,18 @@ Full documentation: [`docs/`](docs/README.md) · Quick examples: [`docs/quicksta
 
 - **Python 3.10+**
 - **[Ollama](https://ollama.com/)** running locally. You must install **at least one**
-  of the supported models — `gemma3`, `phi4`, `qwen2.5`, or `mistral`:
+  of the supported models — `qwen2.5`, `phi4`, `mistral`, or `gemma3`:
 
 ```bash
-ollama pull gemma3:12b    # default model
+ollama pull qwen2.5:7b    # default model (tool-capable)
 ollama pull phi4
-ollama pull qwen2.5:7b
 ollama pull mistral
+ollama pull gemma3:12b    # chat only — cannot call CE services
 ```
 
-The default model is set to **`gemma3:12b`**, so installing it is recommended.
-Smaller variants (e.g. `gemma3:4b`) respond much faster on CPU-only machines.
+The default model is set to **`qwen2.5:7b`**, so installing it is recommended.
+**Note:** `gemma3` does not support Ollama tool-calling, so it can chat but cannot
+invoke the CE services — use `qwen2.5`, `phi4`, or `mistral` for full functionality.
 To change the default, reorder `ALLOWED_MODELS` in `fastapi_app.py` (the first
 entry is used as `DEFAULT_MODEL`).
 
