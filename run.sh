@@ -50,7 +50,7 @@ box_row()
 box_bot(W)
 print()
 
-W2 = 60
+W2 = 64
 def box2_row(label="", val=""):
     content = f"  {label}"
     # pad the label column to a fixed visible width, then add the value
@@ -63,7 +63,7 @@ box_top(W2, C)
 box2_row("🔌  MCP Server:", "http://0.0.0.0:8002/sse")
 box2_row("🌐  Web UI:",     "http://localhost:8000")
 box2_row("⚡  CE Tools:",   "5 services")
-box2_row("🤖  LLM:",        "Ollama (qwen2.5 · phi4 · mistral · gemma3)")
+box2_row("🤖  LLM:",        "Ollama (qwen2.5 · phi4 · mistral)")
 box_bot(W2, C)
 print()
 PYEOF
